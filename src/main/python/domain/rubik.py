@@ -258,6 +258,8 @@ class Cube:
         self.cube[self.red][self.corner_ur] = pocket2
 
     def u(self):
+        # in this case when we do U blue side doesn't care, it just turns around (as far as I understood)
+
         pocket = [self.cube[self.green][self.corner_ul], self.cube[self.green][self.edge_u],
                   self.cube[self.green][self.corner_ur]]
 
@@ -265,10 +267,10 @@ class Cube:
         self.cube[self.green][self.edge_u] = self.cube[self.orange][self.edge_u]
         self.cube[self.green][self.corner_ur] = self.cube[self.orange][self.corner_ur]
 
-        self.cube[self.orange][self.corner_ul] = self.cube[self.blue][self.corner_blue_ul]
-        self.cube[self.orange][self.edge_u] = self.cube[self.blue][self.edge_blue_u]
-        self.cube[self.orange][self.corner_ur] = self.cube[self.blue][self.corner_blue_ur]
-        # ?
+        self.cube[self.orange][self.corner_ul] = self.cube[self.blue][self.corner_ul]
+        self.cube[self.orange][self.edge_u] = self.cube[self.blue][self.edge_u]
+        self.cube[self.orange][self.corner_ur] = self.cube[self.blue][self.corner_ur]
+
         self.cube[self.blue][self.corner_ul] = self.cube[self.red][self.corner_ul]
         self.cube[self.blue][self.edge_u] = self.cube[self.red][self.edge_u]
         self.cube[self.blue][self.corner_ur] = self.cube[self.red][self.corner_ur]
@@ -298,9 +300,9 @@ class Cube:
         self.cube[self.green][self.edge_u] = self.cube[self.red][self.edge_u]
         self.cube[self.green][self.corner_ur] = self.cube[self.red][self.corner_ur]
 
-        self.cube[self.red][self.corner_ul] = self.cube[self.blue][self.corner_blue_ul]
-        self.cube[self.red][self.edge_u] = self.cube[self.blue][self.edge_blue_u]
-        self.cube[self.red][self.corner_ur] = self.cube[self.blue][self.corner_blue_ur]
+        self.cube[self.red][self.corner_ul] = self.cube[self.blue][self.corner_ul]
+        self.cube[self.red][self.edge_u] = self.cube[self.blue][self.edge_u]
+        self.cube[self.red][self.corner_ur] = self.cube[self.blue][self.corner_ur]
         # ?
         self.cube[self.blue][self.corner_ul] = self.cube[self.orange][self.corner_ul]
         self.cube[self.blue][self.edge_u] = self.cube[self.orange][self.edge_u]
@@ -418,7 +420,7 @@ class Cube:
         return 'OK'
 
     def solve(self):
-        self.u2()
+        self.u()
         write(self.cube)
 
 
