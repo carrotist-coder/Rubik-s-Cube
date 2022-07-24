@@ -33,7 +33,6 @@ class Test(unittest.TestCase):
                        ['r','r','r','r','r','r','r','r','r'],
                        ['y','y','y','y','y','y','y','y','y']]
 
-        self.r.solve()
         self.assertEqual(self.r.cube, [
                        ['g','w','w','g','w','w','g','w','w'],
                        ['y','g','g','y','g','g','y','g','g'],

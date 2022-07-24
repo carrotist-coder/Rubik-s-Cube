@@ -260,9 +260,10 @@ class Cube:
 
     def define(self):
         # data is defined in accordance with self.colors
+        self.cube = []
         write("Put the cube's white side up and green side at the front.")
-        cube_scan = []
         for i in range(0,6):
+            cube_scan = []
             while True:
                 if i==5:
                     write(self.msgs[i]+' (Green at the back): ')
@@ -276,7 +277,8 @@ class Cube:
                 else:
                     for i1 in range(0,9):
                         cube_scan.append(ans[i1])
-        self.cube = cube_scan
+                    self.cube.append(cube_scan)
+                    break
         check_msg = self.check()
         if check_msg=='OK':
             return True
