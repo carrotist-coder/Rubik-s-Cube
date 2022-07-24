@@ -42,7 +42,6 @@ class Cube:
         # blue side is vice versa
 
     def r(self):
-        write(self.cube)
         pocket = [self.cube[self.yellow][self.corner_ur], self.cube[self.yellow][self.edge_r], self.cube[self.yellow][self.corner_dr]]
 
         self.cube[self.yellow][self.corner_ur]=self.cube[self.green][self.corner_ur]
@@ -289,7 +288,7 @@ class Cube:
         self.cube[self.yellow][self.corner_ul] = self.cube[self.yellow][self.corner_dl]
         self.cube[self.yellow][self.corner_dl] = self.cube[self.yellow][self.corner_dr]
         self.cube[self.yellow][self.corner_dr] = self.cube[self.yellow][self.corner_ur]
-        self.cube[self.yellow][self.corner_dr] = pocket
+        self.cube[self.yellow][self.corner_ur] = pocket
 
 
     def u_x(self):
@@ -1048,12 +1047,18 @@ class Cube:
         return 'OK'
 
     def solve(self):
-        for i in range(0,6):
+        write('begin: ' + str(self.cube))
+        #self.r()
+        #self.u()
+        for i in range(0,2):
             self.r()
+            write(self.cube)
             self.u()
+            write(self.cube)
             self.r_x()
+            write(self.cube)
             self.u_x()
-        write(self.cube)
+            write(self.cube)
 
 
 def write(msg):
