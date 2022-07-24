@@ -1,4 +1,4 @@
-from domain import rubik
+from src.main.python.domain import rubik
 
 cube = rubik.Cube()
 #while True:
