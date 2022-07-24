@@ -27,7 +27,6 @@ class Cube:
         # cube is being solved in accordance with yellow-up, green-front
 
     def r(self):
-        write(self.cube)
         pocket = [self.cube[self.yellow][self.corner_ur], self.cube[self.yellow][self.edge_r], self.cube[self.yellow][self.corner_dr]]
 
         self.cube[self.yellow][self.corner_ur]=self.cube[self.green][self.corner_ur]
@@ -46,7 +45,20 @@ class Cube:
         self.cube[self.blue][self.edge_r] = pocket[1]
         self.cube[self.blue][self.corner_dr] = pocket[2]
 
-        write(self.cube)
+        pocket = self.cube[self.orange][self.edge_u]
+        self.cube[self.orange][self.edge_u] = self.cube[self.orange][self.edge_l]
+        self.cube[self.orange][self.edge_l] = self.cube[self.orange][self.edge_d]
+        self.cube[self.orange][self.edge_d] = self.cube[self.orange][self.edge_r]
+        self.cube[self.orange][self.edge_r] = pocket
+
+        pocket = self.cube[self.orange][self.corner_ul]
+        self.cube[self.orange][self.corner_ul] = self.cube[self.orange][self.corner_dl]
+        self.cube[self.orange][self.corner_dl] = self.cube[self.orange][self.corner_dr]
+        self.cube[self.orange][self.corner_dr] = self.cube[self.orange][self.corner_ur]
+        self.cube[self.orange][self.corner_dr] = pocket
+
+
+
 
     def r_x(self):
         write(self.cube)
@@ -68,7 +80,17 @@ class Cube:
         self.cube[self.green][self.edge_r] = pocket[1]
         self.cube[self.green][self.corner_dr] = pocket[2]
 
-        write(self.cube)
+        pocket = self.cube[self.orange][self.edge_u]
+        self.cube[self.orange][self.edge_u] = self.cube[self.orange][self.edge_r]
+        self.cube[self.orange][self.edge_r] = self.cube[self.orange][self.edge_d]
+        self.cube[self.orange][self.edge_d] = self.cube[self.orange][self.edge_l]
+        self.cube[self.orange][self.edge_l] = pocket
+
+        pocket = self.cube[self.orange][self.corner_ul]
+        self.cube[self.orange][self.corner_ul] = self.cube[self.orange][self.corner_ur]
+        self.cube[self.orange][self.corner_ur] = self.cube[self.orange][self.corner_dr]
+        self.cube[self.orange][self.corner_dr] = self.cube[self.orange][self.corner_dl]
+        self.cube[self.orange][self.corner_dl] = pocket
 
     def r2(self):
         pocket1 = [self.cube[self.yellow][self.corner_ur], self.cube[self.yellow][self.edge_r],
@@ -92,6 +114,27 @@ class Cube:
         self.cube[self.blue][self.corner_ur] = pocket1[0]
         self.cube[self.blue][self.edge_r] = pocket1[1]
         self.cube[self.blue][self.corner_dr] = pocket1[2]
+
+        pocket1 = self.cube[self.orange][self.edge_u]
+        pocket2 = self.cube[self.orange][self.edge_d]
+        self.cube[self.orange][self.edge_d] = pocket1
+        self.cube[self.orange][self.edge_u] = pocket2
+
+        pocket1 = self.cube[self.orange][self.edge_l]
+        pocket2 = self.cube[self.orange][self.edge_r]
+        self.cube[self.orange][self.edge_r] = pocket1
+        self.cube[self.orange][self.edge_l] = pocket2
+
+        pocket1 = self.cube[self.orange][self.corner_ul]
+        pocket2 = self.cube[self.orange][self.corner_dr]
+        self.cube[self.orange][self.corner_dr] = pocket1
+        self.cube[self.orange][self.corner_ul] = pocket2
+
+        pocket1 = self.cube[self.orange][self.corner_ur]
+        pocket2 = self.cube[self.orange][self.corner_dl]
+        self.cube[self.orange][self.corner_dl] = pocket1
+        self.cube[self.orange][self.corner_ur] = pocket2
+
 
 
     def l(self):
