@@ -6,12 +6,20 @@ class Cube:
         self.colors = ['w', 'g', 'o', 'b', 'r', 'y']
         self.msgs = ['White Side', 'Green Side', 'Orange Side', 'Blue Side', 'Red Side', 'Yellow Side']
 
-        self.white = self.cube[0]
+        """self.white = self.cube[0]
         self.green = self.cube[1]
         self.orange = self.cube[2]
         self.blue = self.cube[3]
         self.red = self.cube[4]
-        self.yellow = self.cube[5]
+        self.yellow = self.cube[5]"""
+
+        self.white = 0
+        self.green = 1
+        self.orange = 2
+        self.blue = 3
+        self.red = 4
+        self.yellow = 5
+        # positions in self.cube
 
         self.centre = 4
         self.edge_u = 7
@@ -25,6 +33,27 @@ class Cube:
         # positions of centre, edges, corners
         # cube is being solved in accordance with yellow-up, green-front
 
+    def r(self):
+        write(self.cube)
+        pocket = [self.cube[self.yellow][self.corner_ur], self.cube[self.yellow][self.edge_r], self.cube[self.yellow][self.corner_dr]]
+
+        self.cube[self.yellow][self.corner_ur]=self.cube[self.green][self.corner_ur]
+        self.cube[self.yellow][self.corner_ur] = self.cube[self.green][self.edge_r]
+        self.cube[self.yellow][self.corner_ur] = self.cube[self.green][self.corner_dr]
+
+        self.cube[self.green][self.corner_ur] = self.cube[self.white][self.corner_ur]
+        self.cube[self.green][self.corner_ur] = self.cube[self.white][self.edge_r]
+        self.cube[self.green][self.corner_ur] = self.cube[self.white][self.corner_dr]
+
+        self.cube[self.white][self.corner_ur] = self.cube[self.blue][self.corner_ur]
+        self.cube[self.white][self.corner_ur] = self.cube[self.blue][self.edge_r]
+        self.cube[self.white][self.corner_ur] = self.cube[self.blue][self.corner_dr]
+
+        self.cube[self.blue][self.corner_ur] = pocket[0]
+        self.cube[self.blue][self.corner_ur] = pocket[1]
+        self.cube[self.blue][self.corner_ur] = pocket[2]
+
+        write(self.cube)
 
 
     def define(self):
@@ -75,20 +104,20 @@ class Cube:
             if much[i]!=8:
                 return 'You entered too many ' + self.colors[i] + ' elements on your Cube. Please try again'
         #TODO: Add corners and edges check
-        self.update()
+        #self.update()
         return 'OK'
 
 
-    def update(self):
+    """def update(self):
         self.white = self.cube[0]
         self.green = self.cube[1]
         self.orange = self.cube[2]
         self.blue = self.cube[3]
         self.red = self.cube[4]
-        self.yellow = self.cube[5]
+        self.yellow = self.cube[5]"""
 
     def solve(self):
-        pass
+        self.r()
 
 
 def write(msg):
