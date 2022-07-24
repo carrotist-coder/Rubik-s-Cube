@@ -1,7 +1,7 @@
 class Cube:
     def __init__(self):
         self.solved = False
-        self.cube = [['wwwwwwwww','ggggggggg','ooooooooo','bbbbbbbbb','rrrrrrrrr','yyyyyyyyy']]
+        self.cube = [['w','w','w','w','w','w','w','w','w'],['g','g','g','g','g','g','g','g','g'],['o','o','o','o','o','o','o','o','o'],['b','b','b','b','b','b','b','b','b'],['r','r','r','r','r','r','r','r','r'],['y','y','y','y','y','y','y','y','y']]
         self.solution = ['y2']
         self.colors = ['w', 'g', 'o', 'b', 'r', 'y']
         self.msgs = ['White Side', 'Green Side', 'Orange Side', 'Blue Side', 'Red Side', 'Yellow Side']
@@ -38,20 +38,20 @@ class Cube:
         pocket = [self.cube[self.yellow][self.corner_ur], self.cube[self.yellow][self.edge_r], self.cube[self.yellow][self.corner_dr]]
 
         self.cube[self.yellow][self.corner_ur]=self.cube[self.green][self.corner_ur]
-        self.cube[self.yellow][self.corner_ur] = self.cube[self.green][self.edge_r]
-        self.cube[self.yellow][self.corner_ur] = self.cube[self.green][self.corner_dr]
+        self.cube[self.yellow][self.edge_r] = self.cube[self.green][self.edge_r]
+        self.cube[self.yellow][self.corner_dr] = self.cube[self.green][self.corner_dr]
 
         self.cube[self.green][self.corner_ur] = self.cube[self.white][self.corner_ur]
-        self.cube[self.green][self.corner_ur] = self.cube[self.white][self.edge_r]
-        self.cube[self.green][self.corner_ur] = self.cube[self.white][self.corner_dr]
+        self.cube[self.green][self.edge_r] = self.cube[self.white][self.edge_r]
+        self.cube[self.green][self.corner_dr] = self.cube[self.white][self.corner_dr]
 
         self.cube[self.white][self.corner_ur] = self.cube[self.blue][self.corner_ur]
-        self.cube[self.white][self.corner_ur] = self.cube[self.blue][self.edge_r]
-        self.cube[self.white][self.corner_ur] = self.cube[self.blue][self.corner_dr]
+        self.cube[self.white][self.edge_r] = self.cube[self.blue][self.edge_r]
+        self.cube[self.white][self.corner_dr] = self.cube[self.blue][self.corner_dr]
 
         self.cube[self.blue][self.corner_ur] = pocket[0]
-        self.cube[self.blue][self.corner_ur] = pocket[1]
-        self.cube[self.blue][self.corner_ur] = pocket[2]
+        self.cube[self.blue][self.edge_r] = pocket[1]
+        self.cube[self.blue][self.corner_dr] = pocket[2]
 
         write(self.cube)
 
@@ -72,8 +72,8 @@ class Cube:
                 elif not(self.right_letters(ans)):
                     write('Please, enter only '+str(self.colors)+' letters without spaces, other letters are not allowed.')
                 else:
-                    break
-            cube_scan.append(ans)
+                    for i1 in range(0,9):
+                        cube_scan.append(ans[i1])
         self.cube = cube_scan
         check_msg = self.check()
         if check_msg=='OK':
