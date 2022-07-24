@@ -1,7 +1,7 @@
 class Cube:
     def __init__(self):
         self.solved = False
-        self.cube = []
+        self.cube = [['wwwwwwwww','ggggggggg','ooooooooo','bbbbbbbbb','rrrrrrrrr','yyyyyyyyy']]
         self.solution = []
         self.colors = ['w', 'g', 'o', 'b', 'r', 'y']
 
@@ -9,8 +9,7 @@ class Cube:
         msgs = ['White Side', 'Green Side', 'Orange Side', 'Blue Side', 'Red Side', 'Yellow Side']
         cube_scan = []
         for i in range(0,6):
-            ans = str()
-            while len(ans)!=9:
+            while True:
                 write(msgs[i]+': ')
                 ans = input()
                 if len(ans)!=9:
