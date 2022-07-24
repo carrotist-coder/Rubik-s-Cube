@@ -2,15 +2,16 @@ class Cube:
     def __init__(self):
         self.solved = False
         self.cube = [['wwwwwwwww','ggggggggg','ooooooooo','bbbbbbbbb','rrrrrrrrr','yyyyyyyyy']]
-        self.solution = []
+        self.solution = ['y2']
         self.colors = ['w', 'g', 'o', 'b', 'r', 'y']
+        self.msgs = ['White Side', 'Green Side', 'Orange Side', 'Blue Side', 'Red Side', 'Yellow Side']
 
-        self.white = self.colors[0]
-        self.green = self.colors[1]
-        self.orange = self.colors[2]
-        self.blue = self.colors[3]
-        self.red = self.colors[4]
-        self.yellow = self.colors[5]
+        self.white = self.cube[0]
+        self.green = self.cube[1]
+        self.orange = self.cube[2]
+        self.blue = self.cube[3]
+        self.red = self.cube[4]
+        self.yellow = self.cube[5]
 
         self.centre = 4
         self.edge_u = 7
@@ -29,19 +30,28 @@ class Cube:
     def define(self):
         # data is defined in accordance with self.colors
         write("Put the cube's white side up and green side at the front.")
-        msgs = ['White Side', 'Green Side', 'Orange Side', 'Blue Side', 'Red Side', 'Yellow Side (Green at the back)']
         cube_scan = []
         for i in range(0,6):
             while True:
-                write(msgs[i]+': ')
+                if i==5:
+                    write(self.msgs[i]+' (Green at the back): ')
+                else:
+                    write(self.msgs[i]+': ')
                 ans = input()
                 if len(ans)!=9:
-                    write('Please, enter 9 cells of the '+msgs[i]+'.')
+                    write('Please, enter 9 cells of the '+self.msgs[i]+'.')
                 elif not(self.right_letters(ans)):
                     write('Please, enter only '+str(self.colors)+' letters without spaces, other letters are not allowed.')
                 else:
                     break
             cube_scan.append(ans)
+        self.cube = cube_scan
+        check_msg = self.check()
+        if check_msg=='OK':
+            return True
+        else:
+            write(check_msg)
+            return False
 
     def right_letters(self, side):
         for i in range(0,9):
@@ -53,7 +63,33 @@ class Cube:
 
 
     def check(self):
+        much = [0,0,0,0,0,0]
+        for i in range(0,6):
+            if self.cube[i][self.centre]!=self.colors[i]:
+                return 'The centre of the ' + self.msgs[i] + ' does not match with your centre. Please try again.'
+            for i1 in range(0,9):
+                if i1==4:
+                    continue
+                much[self.colors.index(self.cube[i][i1])]+=1  #try
+        for i in range(0,6):
+            if much[i]!=8:
+                return 'You entered too many ' + self.colors[i] + ' elements on your Cube. Please try again'
+        #TODO: Add corners and edges check
+        self.update()
+        return 'OK'
+
+
+    def update(self):
+        self.white = self.cube[0]
+        self.green = self.cube[1]
+        self.orange = self.cube[2]
+        self.blue = self.cube[3]
+        self.red = self.cube[4]
+        self.yellow = self.cube[5]
+
+    def solve(self):
         pass
+
 
 def write(msg):
     print(msg)

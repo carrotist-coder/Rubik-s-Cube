@@ -1,4 +1,6 @@
-from domain import rubik as r
+from domain import rubik
 
-cube = r.Cube()
-cube.define()
+cube = rubik.Cube()
+while True:
+    if cube.define():
+        cube.solve()
