@@ -885,6 +885,115 @@ class Cube:
         self.cube[self.white][self.centre] = pocket1[1]
         self.cube[self.white][self.edge_l] = pocket1[2]
 
+    def rw(self):
+        self.r()
+        self.m_x()
+
+    def rw_x(self):
+        self.r_x()
+        self.m()
+
+    def rw2(self):
+        self.r2()
+        self.m2()
+
+    def lw(self):
+        self.l()
+        self.m()
+
+    def lw_x(self):
+        self.l_x()
+        self.m_x()
+
+    def lw2(self):
+        self.l2()
+        self.m2()
+
+    def uw(self):
+        self.u()
+        self.e()
+
+    def uw_x(self):
+        self.u_x()
+        self.e_x()
+
+    def uw2(self):
+        self.u2()
+        self.e2()
+
+    def dw(self):
+        self.d()
+        self.e_x()
+
+    def dw_x(self):
+        self.d_x()
+        self.e()
+
+    def dw2(self):
+        self.d2()
+        self.e2()
+
+    def fw(self):
+        self.f()
+        self.s()
+
+    def fw_x(self):
+        self.f_x()
+        self.s_x()
+
+    def fw2(self):
+        self.f2()
+        self.s2()
+
+    # no bw
+
+    def x(self):
+        self.r()
+        self.m_x()
+        self.l_x()
+
+    def x_x(self):
+        self.r_x()
+        self.m()
+        self.l()
+
+    def x2(self):
+        self.r2()
+        self.m2()
+        self.l2()
+        
+    def y(self):
+        self.u()
+        self.e()
+        self.d_x()
+
+    def y_x(self):
+        self.u_x()
+        self.e_x()
+        self.d()
+
+    def y2(self):
+        self.u2()
+        self.e2()
+        self.d2()
+
+    def z(self):
+        self.f()
+        self.s()
+        self.b_x()
+
+    def z_x(self):
+        self.f_x()
+        self.s_x()
+        self.b()
+
+    def z2(self):
+        self.f2()
+        self.s2()
+        self.b2()
+
+
+
     def define(self):
         # data is defined in accordance with self.colors
         self.cube = []
@@ -939,7 +1048,11 @@ class Cube:
         return 'OK'
 
     def solve(self):
-        self.s2()
+        for i in range(0,6):
+            self.r()
+            self.u()
+            self.r_x()
+            self.u_x()
         write(self.cube)
 
 
