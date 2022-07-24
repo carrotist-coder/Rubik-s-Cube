@@ -476,6 +476,262 @@ class Cube:
         self.cube[self.white][self.corner_dl] = pocket1
         self.cube[self.white][self.corner_ur] = pocket2
 
+
+
+    def f(self):
+        pocket = [self.cube[self.yellow][self.corner_dl], self.cube[self.yellow][self.edge_d],
+                  self.cube[self.yellow][self.corner_dr]]
+
+        self.cube[self.yellow][self.corner_dl] = self.cube[self.red][self.corner_ur]
+        self.cube[self.yellow][self.edge_d] = self.cube[self.red][self.edge_r]
+        self.cube[self.yellow][self.corner_dr] = self.cube[self.red][self.corner_dr]
+
+        self.cube[self.red][self.corner_ur] = self.cube[self.white][self.corner_ul]
+        self.cube[self.red][self.edge_r] = self.cube[self.white][self.edge_u]
+        self.cube[self.red][self.corner_dr] = self.cube[self.white][self.corner_ur]
+
+        self.cube[self.white][self.corner_ul] = self.cube[self.orange][self.corner_dl]
+        self.cube[self.white][self.edge_u] = self.cube[self.orange][self.edge_l]
+        self.cube[self.white][self.corner_ur] = self.cube[self.orange][self.corner_ul]
+
+        self.cube[self.orange][self.corner_dl] = pocket[2]
+        self.cube[self.orange][self.edge_l] = pocket[1]
+        self.cube[self.orange][self.corner_ul] = pocket[0]
+
+        pocket = self.cube[self.green][self.edge_u]
+        self.cube[self.green][self.edge_u] = self.cube[self.green][self.edge_l]
+        self.cube[self.green][self.edge_l] = self.cube[self.green][self.edge_d]
+        self.cube[self.green][self.edge_d] = self.cube[self.green][self.edge_r]
+        self.cube[self.green][self.edge_r] = pocket
+
+        pocket = self.cube[self.green][self.corner_ul]
+        self.cube[self.green][self.corner_ul] = self.cube[self.green][self.corner_dl]
+        self.cube[self.green][self.corner_dl] = self.cube[self.green][self.corner_dr]
+        self.cube[self.green][self.corner_dr] = self.cube[self.green][self.corner_ur]
+        self.cube[self.green][self.corner_ur] = pocket
+
+    def f_x(self):
+        pocket = [self.cube[self.yellow][self.corner_dl], self.cube[self.yellow][self.edge_d],
+                  self.cube[self.yellow][self.corner_dr]]
+
+        self.cube[self.yellow][self.corner_dl] = self.cube[self.orange][self.corner_ul]
+        self.cube[self.yellow][self.edge_d] = self.cube[self.orange][self.edge_l]
+        self.cube[self.yellow][self.corner_dr] = self.cube[self.orange][self.corner_dl]
+
+        self.cube[self.orange][self.corner_ul] = self.cube[self.white][self.corner_ur]
+        self.cube[self.orange][self.edge_l] = self.cube[self.white][self.edge_u]
+        self.cube[self.orange][self.corner_dl] = self.cube[self.white][self.corner_ul]
+
+        self.cube[self.white][self.corner_ur] = self.cube[self.red][self.corner_dr]
+        self.cube[self.white][self.edge_u] = self.cube[self.red][self.edge_r]
+        self.cube[self.white][self.corner_ul] = self.cube[self.red][self.corner_ur]
+
+        self.cube[self.red][self.corner_dr] = pocket[0]
+        self.cube[self.red][self.edge_r] = pocket[1]
+        self.cube[self.red][self.corner_ur] = pocket[2]
+
+        pocket = self.cube[self.green][self.edge_u]
+        self.cube[self.green][self.edge_u] = self.cube[self.green][self.edge_r]
+        self.cube[self.green][self.edge_r] = self.cube[self.green][self.edge_d]
+        self.cube[self.green][self.edge_d] = self.cube[self.green][self.edge_l]
+        self.cube[self.green][self.edge_l] = pocket
+
+        pocket = self.cube[self.green][self.corner_ul]
+        self.cube[self.green][self.corner_ul] = self.cube[self.green][self.corner_ur]
+        self.cube[self.green][self.corner_ur] = self.cube[self.green][self.corner_dr]
+        self.cube[self.green][self.corner_dr] = self.cube[self.green][self.corner_dl]
+        self.cube[self.green][self.corner_dl] = pocket
+
+
+
+
+    def f2(self):
+        pocket1 = [self.cube[self.yellow][self.corner_dl], self.cube[self.yellow][self.edge_d],
+                  self.cube[self.yellow][self.corner_dr]]
+        pocket2 = [self.cube[self.white][self.corner_ur], self.cube[self.white][self.edge_u],
+                  self.cube[self.white][self.corner_ul]]
+        self.cube[self.yellow][self.corner_dl] = pocket2[0]
+        self.cube[self.yellow][self.edge_d] = pocket2[1]
+        self.cube[self.yellow][self.corner_dr] = pocket2[2]
+        self.cube[self.white][self.corner_ur] = pocket1[0]
+        self.cube[self.white][self.edge_u] = pocket1[1]
+        self.cube[self.white][self.corner_ul] = pocket1[2]
+
+        pocket1 = [self.cube[self.orange][self.corner_ul], self.cube[self.orange][self.edge_l],
+                   self.cube[self.orange][self.corner_dl]]
+        pocket2 = [self.cube[self.red][self.corner_dr], self.cube[self.red][self.edge_r],
+                   self.cube[self.red][self.corner_ur]]
+        self.cube[self.orange][self.corner_ul] = pocket2[0]
+        self.cube[self.orange][self.edge_l] = pocket2[1]
+        self.cube[self.orange][self.corner_dl] = pocket2[2]
+        self.cube[self.red][self.corner_dr] = pocket1[0]
+        self.cube[self.red][self.edge_r] = pocket1[1]
+        self.cube[self.red][self.corner_ur] = pocket1[2]
+
+        pocket1 = self.cube[self.green][self.edge_u]
+        pocket2 = self.cube[self.green][self.edge_d]
+        self.cube[self.green][self.edge_d] = pocket1
+        self.cube[self.green][self.edge_u] = pocket2
+
+        pocket1 = self.cube[self.green][self.edge_l]
+        pocket2 = self.cube[self.green][self.edge_r]
+        self.cube[self.green][self.edge_r] = pocket1
+        self.cube[self.green][self.edge_l] = pocket2
+
+        pocket1 = self.cube[self.green][self.corner_ul]
+        pocket2 = self.cube[self.green][self.corner_dr]
+        self.cube[self.green][self.corner_dr] = pocket1
+        self.cube[self.green][self.corner_ul] = pocket2
+
+        pocket1 = self.cube[self.green][self.corner_ur]
+        pocket2 = self.cube[self.green][self.corner_dl]
+        self.cube[self.green][self.corner_dl] = pocket1
+        self.cube[self.green][self.corner_ur] = pocket2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def b(self):
+        pocket = [self.cube[self.yellow][self.corner_ul], self.cube[self.yellow][self.edge_u],
+                  self.cube[self.yellow][self.corner_ur]]
+
+        self.cube[self.yellow][self.corner_ul] = self.cube[self.orange][self.corner_ur]
+        self.cube[self.yellow][self.edge_u] = self.cube[self.orange][self.edge_r]
+        self.cube[self.yellow][self.corner_ur] = self.cube[self.orange][self.corner_dr]
+
+        self.cube[self.orange][self.corner_ur] = self.cube[self.white][self.corner_dr]
+        self.cube[self.orange][self.edge_r] = self.cube[self.white][self.edge_d]
+        self.cube[self.orange][self.corner_dr] = self.cube[self.white][self.corner_dl]
+
+        self.cube[self.white][self.corner_dr] = self.cube[self.red][self.corner_dl]
+        self.cube[self.white][self.edge_d] = self.cube[self.red][self.edge_l]
+        self.cube[self.white][self.corner_dl] = self.cube[self.red][self.corner_ul]
+
+        self.cube[self.red][self.corner_dl] = pocket[0]
+        self.cube[self.red][self.edge_l] = pocket[1]
+        self.cube[self.red][self.corner_ul] = pocket[2]
+
+        pocket = self.cube[self.blue][self.edge_u]
+        self.cube[self.blue][self.edge_u] = self.cube[self.blue][self.edge_l]
+        self.cube[self.blue][self.edge_l] = self.cube[self.blue][self.edge_d]
+        self.cube[self.blue][self.edge_d] = self.cube[self.blue][self.edge_r]
+        self.cube[self.blue][self.edge_r] = pocket
+
+        pocket = self.cube[self.blue][self.corner_ul]
+        self.cube[self.blue][self.corner_ul] = self.cube[self.blue][self.corner_dl]
+        self.cube[self.blue][self.corner_dl] = self.cube[self.blue][self.corner_dr]
+        self.cube[self.blue][self.corner_dr] = self.cube[self.blue][self.corner_ur]
+        self.cube[self.blue][self.corner_ur] = pocket
+
+
+
+
+
+    def b_x(self):
+        pocket = [self.cube[self.yellow][self.corner_ul], self.cube[self.yellow][self.edge_u],
+                  self.cube[self.yellow][self.corner_ur]]
+
+        self.cube[self.yellow][self.corner_ul] = self.cube[self.red][self.corner_dl]
+        self.cube[self.yellow][self.edge_u] = self.cube[self.red][self.edge_l]
+        self.cube[self.yellow][self.corner_ur] = self.cube[self.red][self.corner_ul]
+
+        self.cube[self.red][self.corner_ul] = self.cube[self.white][self.corner_dl]
+        self.cube[self.red][self.edge_l] = self.cube[self.white][self.edge_d]
+        self.cube[self.red][self.corner_dl] = self.cube[self.white][self.corner_dr]
+
+        self.cube[self.white][self.corner_dl] = self.cube[self.orange][self.corner_dr]
+        self.cube[self.white][self.edge_d] = self.cube[self.orange][self.edge_r]
+        self.cube[self.white][self.corner_dr] = self.cube[self.orange][self.corner_ur]
+
+        self.cube[self.orange][self.corner_dr] = pocket[2]
+        self.cube[self.orange][self.edge_r] = pocket[1]
+        self.cube[self.orange][self.corner_ur] = pocket[0]
+
+        pocket = self.cube[self.blue][self.edge_u]
+        self.cube[self.blue][self.edge_u] = self.cube[self.blue][self.edge_r]
+        self.cube[self.blue][self.edge_r] = self.cube[self.blue][self.edge_d]
+        self.cube[self.blue][self.edge_d] = self.cube[self.blue][self.edge_l]
+        self.cube[self.blue][self.edge_l] = pocket
+
+        pocket = self.cube[self.blue][self.corner_ul]
+        self.cube[self.blue][self.corner_ul] = self.cube[self.blue][self.corner_ur]
+        self.cube[self.blue][self.corner_ur] = self.cube[self.blue][self.corner_dr]
+        self.cube[self.blue][self.corner_dr] = self.cube[self.blue][self.corner_dl]
+        self.cube[self.blue][self.corner_dl] = pocket
+
+
+    def b2(self):
+        pocket1 = [self.cube[self.yellow][self.corner_ul], self.cube[self.yellow][self.edge_u],
+                  self.cube[self.yellow][self.corner_ur]]
+        pocket2 = [self.cube[self.white][self.corner_dr], self.cube[self.white][self.edge_d],
+                  self.cube[self.white][self.corner_dl]]
+        self.cube[self.yellow][self.corner_ul] = pocket2[0]
+        self.cube[self.yellow][self.edge_u] = pocket2[1]
+        self.cube[self.yellow][self.corner_ur] = pocket2[2]
+        self.cube[self.white][self.corner_dr] = pocket1[0]
+        self.cube[self.white][self.edge_d] = pocket1[1]
+        self.cube[self.white][self.corner_dl] = pocket1[2]
+
+        pocket1 = [self.cube[self.orange][self.corner_ur], self.cube[self.orange][self.edge_r],
+                   self.cube[self.orange][self.corner_dr]]
+        pocket2 = [self.cube[self.red][self.corner_dl], self.cube[self.red][self.edge_l],
+                   self.cube[self.red][self.corner_ul]]
+        self.cube[self.orange][self.corner_ur] = pocket2[0]
+        self.cube[self.orange][self.edge_r] = pocket2[1]
+        self.cube[self.orange][self.corner_dr] = pocket2[2]
+        self.cube[self.red][self.corner_dl] = pocket1[0]
+        self.cube[self.red][self.edge_l] = pocket1[1]
+        self.cube[self.red][self.corner_ul] = pocket1[2]
+
+        pocket1 = self.cube[self.blue][self.edge_u]
+        pocket2 = self.cube[self.blue][self.edge_d]
+        self.cube[self.blue][self.edge_d] = pocket1
+        self.cube[self.blue][self.edge_u] = pocket2
+
+        pocket1 = self.cube[self.blue][self.edge_l]
+        pocket2 = self.cube[self.blue][self.edge_r]
+        self.cube[self.blue][self.edge_r] = pocket1
+        self.cube[self.blue][self.edge_l] = pocket2
+
+        pocket1 = self.cube[self.blue][self.corner_ul]
+        pocket2 = self.cube[self.blue][self.corner_dr]
+        self.cube[self.blue][self.corner_dr] = pocket1
+        self.cube[self.blue][self.corner_ul] = pocket2
+
+        pocket1 = self.cube[self.blue][self.corner_ur]
+        pocket2 = self.cube[self.blue][self.corner_dl]
+        self.cube[self.blue][self.corner_dl] = pocket1
+        self.cube[self.blue][self.corner_ur] = pocket2
+
+
+
+
     def define(self):
         # data is defined in accordance with self.colors
         self.cube = []
@@ -526,10 +782,14 @@ class Cube:
             if much[i]!=8:
                 return 'You entered too many ' + self.colors[i] + ' elements on your Cube. Please try again'
         #TODO: Add corners and edges check
+        #TODO: where are centres
         return 'OK'
 
     def solve(self):
-        self.d_x()
+        self.d2()
+        self.u()
+        self.r()
+        self.f2()
         write(self.cube)
 
 
