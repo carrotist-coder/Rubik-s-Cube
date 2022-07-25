@@ -481,9 +481,9 @@ class Cube:
         pocket = [self.cube[self.yellow][self.corner_dl], self.cube[self.yellow][self.edge_d],
                   self.cube[self.yellow][self.corner_dr]]
 
-        self.cube[self.yellow][self.corner_dl] = self.cube[self.red][self.corner_ur]
+        self.cube[self.yellow][self.corner_dr] = self.cube[self.red][self.corner_ur]
         self.cube[self.yellow][self.edge_d] = self.cube[self.red][self.edge_r]
-        self.cube[self.yellow][self.corner_dr] = self.cube[self.red][self.corner_dr]
+        self.cube[self.yellow][self.corner_dl] = self.cube[self.red][self.corner_dr]
 
         self.cube[self.red][self.corner_ur] = self.cube[self.white][self.corner_ul]
         self.cube[self.red][self.edge_r] = self.cube[self.white][self.edge_u]
@@ -1053,13 +1053,13 @@ class Cube:
         #self.r()
         #self.u()
         for zzz in range(0,6):
-            self.r()
-            write(self.cube)
-            self.u()
-            write(self.cube)
             self.r_x()
             write(self.cube)
-            self.u_x()
+            self.f()
+            write(self.cube)
+            self.r()
+            write(self.cube)
+            self.f_x()
             write(self.cube)
             write(zzz+1)
 
