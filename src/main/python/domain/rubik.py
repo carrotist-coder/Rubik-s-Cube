@@ -158,17 +158,17 @@ class Cube:
         self.cube[self.yellow][self.edge_l] = self.cube[self.blue][self.edge_blue_l]
         self.cube[self.yellow][self.corner_dl] = self.cube[self.blue][self.corner_blue_dl]
 
-        self.cube[self.blue][self.corner_blue_ul] = self.cube[self.white][self.corner_ul]
-        self.cube[self.blue][self.edge_blue_l] = self.cube[self.white][self.edge_l]
         self.cube[self.blue][self.corner_blue_dl] = self.cube[self.white][self.corner_dl]
+        self.cube[self.blue][self.edge_blue_l] = self.cube[self.white][self.edge_l]
+        self.cube[self.blue][self.corner_blue_ul] = self.cube[self.white][self.corner_ul]
 
-        self.cube[self.white][self.corner_ul] = self.cube[self.green][self.corner_ul]
-        self.cube[self.white][self.edge_l] = self.cube[self.green][self.edge_l]
         self.cube[self.white][self.corner_dl] = self.cube[self.green][self.corner_dl]
+        self.cube[self.white][self.edge_l] = self.cube[self.green][self.edge_l]
+        self.cube[self.white][self.corner_ul] = self.cube[self.green][self.corner_ul]
 
-        self.cube[self.green][self.corner_ul] = pocket[0]
-        self.cube[self.green][self.edge_l] = pocket[1]
         self.cube[self.green][self.corner_dl] = pocket[2]
+        self.cube[self.green][self.edge_l] = pocket[1]
+        self.cube[self.green][self.corner_ul] = pocket[0]
 
         pocket = self.cube[self.red][self.edge_u]
         self.cube[self.red][self.edge_u] = self.cube[self.red][self.edge_l]
@@ -180,7 +180,7 @@ class Cube:
         self.cube[self.red][self.corner_ul] = self.cube[self.red][self.corner_dl]
         self.cube[self.red][self.corner_dl] = self.cube[self.red][self.corner_dr]
         self.cube[self.red][self.corner_dr] = self.cube[self.red][self.corner_ur]
-        self.cube[self.red][self.corner_dr] = pocket
+        self.cube[self.red][self.corner_ur] = pocket
 
     def l_x(self):
         pocket = [self.cube[self.yellow][self.corner_ul], self.cube[self.yellow][self.edge_l], self.cube[self.yellow][self.corner_dl]]
@@ -1053,13 +1053,13 @@ class Cube:
         #self.r()
         #self.u()
         for zzz in range(0,6):
-            self.r_x()
+            self.l_x()
             write(self.cube)
-            self.f()
+            self.u_x()
             write(self.cube)
-            self.r()
+            self.l()
             write(self.cube)
-            self.f_x()
+            self.u()
             write(self.cube)
             write(zzz+1)
 
