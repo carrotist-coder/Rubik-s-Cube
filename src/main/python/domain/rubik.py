@@ -70,7 +70,7 @@ class Cube:
         self.cube[self.orange][self.corner_ul] = self.cube[self.orange][self.corner_dl]
         self.cube[self.orange][self.corner_dl] = self.cube[self.orange][self.corner_dr]
         self.cube[self.orange][self.corner_dr] = self.cube[self.orange][self.corner_ur]
-        self.cube[self.orange][self.corner_dr] = pocket
+        self.cube[self.orange][self.corner_ur] = pocket
 
 
 
@@ -993,6 +993,8 @@ class Cube:
 
 
 
+
+
     def define(self):
         # data is defined in accordance with self.colors
         self.cube = []
@@ -1050,7 +1052,7 @@ class Cube:
         write('begin: ' + str(self.cube))
         #self.r()
         #self.u()
-        for i in range(0,2):
+        for zzz in range(0,6):
             self.r()
             write(self.cube)
             self.u()
@@ -1059,6 +1061,7 @@ class Cube:
             write(self.cube)
             self.u_x()
             write(self.cube)
+            write(zzz+1)
 
 
 def write(msg):

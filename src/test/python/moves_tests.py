@@ -72,12 +72,12 @@ class Test(unittest.TestCase):
     def test_pf(self):
         self.r.solve()
         self.assertEqual(self.r.cube,
-                         [['w', 'w', 'o', 'w', 'w', 'g', 'o', 'w', 'g'],
-                          ['g', 'g', 'y', 'y', 'g', 'w', 'w', 'g', 'g'],
-                          ['b', 'o', 'y', 'o', 'o', 'b', 'y', 'o', 'o'],
-                          ['b', 'r', 'r', 'b', 'b', 'b', 'o', 'o', 'b'],
-                          ['r', 'r', 'w', 'b', 'r', 'r', 'w', 'r', 'b'],
-                          ['g', 'y', 'r', 'g', 'y', 'y', 'r', 'y', 'y']]
+                         [['w', 'w', 'w', 'w', 'w', 'w', 'o', 'w', 'w'],
+                          ['w', 'g', 'g', 'y', 'g', 'g', 'o', 'g', 'g'],
+                          ['o', 'o', 'g', 'o', 'o', 'o', 'y', 'b', 'y'],
+                          ['b', 'b', 'b', 'b', 'b', 'b', 'y', 'o', 'o'],
+                          ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'b'],
+                          ['g', 'y', 'y', 'y', 'y', 'y', 'b', 'g', 'r']]
                          )
 
 
