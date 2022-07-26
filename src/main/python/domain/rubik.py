@@ -3,6 +3,9 @@ from src.main.python.domain import solve
 class Cube:
     def __init__(self):
         self.solved = False
+        self.cross_is = False
+        self.f2l_is = False
+        self.oll_is = False
         self.cube = [
             ['w','w','w','w','w','w','w','w','w'],
             ['g','g','g','g','g','g','g','g','g'],
@@ -1178,8 +1181,156 @@ class Cube:
 
     def solve(self):
         write('begin: ' + str(self.cube))
-        solve.cfop()
+        #solve.cfop()
+        self.cross()
         write(self.solution)
+
+    def cross(self):
+        downs = ['g','o','b','r']
+        for i in range(1, 5):
+            found = False
+            edges = self.edges_get()
+            edges_reversed = self.edges_get_reversed()
+            for i1 in range(0,12):
+                if edges[i1]=='w':
+                    self.cross_do(i1, False, downs.index(edges_reversed[0]))
+                    downs[downs.index(edges_reversed[0])]=''
+                    found = True
+                else:
+                    pass
+            if found:
+                continue
+
+    def cross_do(self,pos, rev, color_edge):
+        if color_edge == 'g':
+            if not(rev):
+                if pos==1:
+                    self.r2()
+                    self.u_x()
+                    self.f2()
+                elif pos==2:
+                    self.b2()
+                    self.u2()
+                    self.r2()
+                elif pos==3:
+                    self.l2()
+                    self.u_x()
+                    self.f2()
+                elif pos == 4:
+                    self.d_x()
+                    self.l()
+                    self.d()
+                elif pos == 5:
+                    self.d()
+                    self.r_x()
+                    self.d_x()
+                elif pos == 6:
+                    self.d()
+                    self.r_x()
+                    self.d_x()
+                elif pos == 7:
+                    self.d_x()
+                    self.l()
+                    self.d()
+                elif pos == 8:
+                    self.u2()
+                    self.f2()
+                elif pos == 9:
+                    self.u()
+                    self.f2()
+                elif pos == 10:
+                    self.f2()
+                elif pos == 11:
+                    self.u_x()
+                    self.f2()
+            else:
+                if pos==0:
+                    self.f()
+                    self.d_x()
+                    self.l()
+                    self.d()
+                elif pos==1:
+                    self.r_x()
+                    self.f()
+                elif pos==2:
+                    self.b()
+                    self.d()
+                    self.r()
+                    self.d_x()
+                elif pos==3:
+                    self.l_x()
+                    self.f_x()
+                elif pos == 4:
+                    self.f_x()
+                elif pos == 5:
+                    self.f()
+                elif pos == 6:
+                    self.d2()
+                    self.b_x()
+                    self.d2()
+                elif pos == 7:
+                    self.d2()
+                    self.b()
+                    self.d2()
+                elif pos == 8:
+                    self.u()
+                    self.r_x()
+                    self.f()
+                    self.r()
+                elif pos == 9:
+                    self.r_x()
+                    self.f()
+                    self.r()
+                elif pos == 10:
+                    self.u_x()
+                    self.r_x()
+                    self.f()
+                    self.r()
+                elif pos == 11:
+                    self.l()
+                    self.f_x()
+                    self.l_x()
+
+
+
+    def edges_get(self):
+        edges = [
+            self.cube[self.white][self.edge_u], #0
+            self.cube[self.white][self.edge_r], #1
+            self.cube[self.white][self.edge_d], #2
+            self.cube[self.white][self.edge_l], #3
+
+            self.cube[self.green][self.edge_l], #4
+            self.cube[self.green][self.edge_r], #5
+            self.cube[self.blue][self.edge_l], #6
+            self.cube[self.blue][self.edge_r], #7
+
+            self.cube[self.yellow][self.edge_u], #8
+            self.cube[self.yellow][self.edge_r], #9
+            self.cube[self.yellow][self.edge_d], #10
+            self.cube[self.yellow][self.edge_l], #11
+        ]
+        return edges
+
+    def edges_get_reversed(self):
+        edges = [
+            self.cube[self.green][self.edge_d],  #0
+            self.cube[self.orange][self.edge_d], #1
+            self.cube[self.blue][self.edge_d], #2
+            self.cube[self.red][self.edge_d], #3
+
+            self.cube[self.red][self.edge_r], #4
+            self.cube[self.orange][self.edge_l], #5
+            self.cube[self.orange][self.edge_r], #6
+            self.cube[self.red][self.edge_l], #7
+
+            self.cube[self.blue][self.edge_u], #8
+            self.cube[self.orange][self.edge_u], #9
+            self.cube[self.green][self.edge_u], #10
+            self.cube[self.red][self.edge_u], #11
+
+        ]
+        return edges
 
 
 def write(msg):

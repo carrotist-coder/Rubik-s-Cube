@@ -1,4 +1,4 @@
 venv
 .idea
 src/test/resoures/tests.txt
-src/main/resoures/plan_cross.txt
+/src/main/resources/plan_cross.txt
