@@ -387,16 +387,16 @@ class Cube:
         self.cube[self.orange][self.corner_dr] = pocket[2]
 
         pocket = self.cube[self.white][self.edge_u]
-        self.cube[self.white][self.edge_u] = self.cube[self.white][self.edge_r]
-        self.cube[self.white][self.edge_r] = self.cube[self.white][self.edge_d]
-        self.cube[self.white][self.edge_d] = self.cube[self.white][self.edge_l]
-        self.cube[self.white][self.edge_l] = pocket
+        self.cube[self.white][self.edge_u] = self.cube[self.white][self.edge_l]
+        self.cube[self.white][self.edge_l] = self.cube[self.white][self.edge_d]
+        self.cube[self.white][self.edge_d] = self.cube[self.white][self.edge_r]
+        self.cube[self.white][self.edge_r] = pocket
 
         pocket = self.cube[self.white][self.corner_ul]
-        self.cube[self.white][self.corner_ul] = self.cube[self.white][self.corner_ur]
-        self.cube[self.white][self.corner_ur] = self.cube[self.white][self.corner_dr]
-        self.cube[self.white][self.corner_dr] = self.cube[self.white][self.corner_dl]
-        self.cube[self.white][self.corner_dl] = pocket
+        self.cube[self.white][self.corner_ul] = self.cube[self.white][self.corner_dl]
+        self.cube[self.white][self.corner_dl] = self.cube[self.white][self.corner_dr]
+        self.cube[self.white][self.corner_dr] = self.cube[self.white][self.corner_ur]
+        self.cube[self.white][self.corner_ur] = pocket
 
     def d_x(self):
         pocket = [self.cube[self.green][self.corner_dl], self.cube[self.green][self.edge_d],
@@ -419,16 +419,16 @@ class Cube:
         self.cube[self.red][self.corner_dr] = pocket[2]
 
         pocket = self.cube[self.white][self.edge_u]
-        self.cube[self.white][self.edge_u] = self.cube[self.white][self.edge_l]
-        self.cube[self.white][self.edge_l] = self.cube[self.white][self.edge_d]
-        self.cube[self.white][self.edge_d] = self.cube[self.white][self.edge_r]
-        self.cube[self.white][self.edge_r] = pocket
+        self.cube[self.white][self.edge_u] = self.cube[self.white][self.edge_r]
+        self.cube[self.white][self.edge_r] = self.cube[self.white][self.edge_d]
+        self.cube[self.white][self.edge_d] = self.cube[self.white][self.edge_l]
+        self.cube[self.white][self.edge_l] = pocket
 
         pocket = self.cube[self.white][self.corner_ul]
-        self.cube[self.white][self.corner_ul] = self.cube[self.white][self.corner_dl]
-        self.cube[self.white][self.corner_dl] = self.cube[self.white][self.corner_dr]
-        self.cube[self.white][self.corner_dr] = self.cube[self.white][self.corner_ur]
-        self.cube[self.white][self.corner_dr] = pocket
+        self.cube[self.white][self.corner_ul] = self.cube[self.white][self.corner_ur]
+        self.cube[self.white][self.corner_ur] = self.cube[self.white][self.corner_dr]
+        self.cube[self.white][self.corner_dr] = self.cube[self.white][self.corner_dl]
+        self.cube[self.white][self.corner_dl] = pocket
 
 
 
@@ -1052,7 +1052,25 @@ class Cube:
         write('begin: ' + str(self.cube))
         #self.r()
         #self.u()
-        for zzz in range(0,4):
+        for zzz in range(0,2):
+            self.f()
+            write(self.cube)
+            self.r()
+            write(self.cube)
+            self.u_x()
+            write(self.cube)
+            self.r_x()
+            write(self.cube)
+            self.u_x()
+            write(self.cube)
+            self.r()
+            write(self.cube)
+            self.u()
+            write(self.cube)
+            self.r_x()
+            write(self.cube)
+            self.f_x()
+            write(self.cube)
             self.r()
             write(self.cube)
             self.u()
@@ -1061,27 +1079,13 @@ class Cube:
             write(self.cube)
             self.u_x()
             write(self.cube)
-            self.d()
+            self.r_x()
             write(self.cube)
-            self.r2()
-            write(self.cube)
-            self.u_x()
+            self.f()
             write(self.cube)
             self.r()
             write(self.cube)
-            self.u_x()
-            write(self.cube)
-            self.r_x()
-            write(self.cube)
-            self.u()
-            write(self.cube)
-            self.r_x()
-            write(self.cube)
-            self.u()
-            write(self.cube)
-            self.r2()
-            write(self.cube)
-            self.d_x()
+            self.f_x()
             write(self.cube)
             write(zzz+1)
 
