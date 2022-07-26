@@ -8,7 +8,7 @@ class Cube:
             ['b','b','b','b','b','b','b','b','b'],
             ['r','r','r','r','r','r','r','r','r'],
             ['y','y','y','y','y','y','y','y','y']]
-        self.solution = ['y2']
+        self.solution = ['z2']
         self.colors = ['w', 'g', 'o', 'b', 'r', 'y']
         self.msgs = ['White Side', 'Green Side', 'Orange Side', 'Blue Side', 'Red Side', 'Yellow Side']
 
@@ -72,6 +72,8 @@ class Cube:
         self.cube[self.orange][self.corner_dr] = self.cube[self.orange][self.corner_ur]
         self.cube[self.orange][self.corner_ur] = pocket
 
+        self.solution.append("R")
+
 
 
     def r_x(self):
@@ -105,6 +107,8 @@ class Cube:
         self.cube[self.orange][self.corner_ur] = self.cube[self.orange][self.corner_dr]
         self.cube[self.orange][self.corner_dr] = self.cube[self.orange][self.corner_dl]
         self.cube[self.orange][self.corner_dl] = pocket
+
+        self.solution.append("R'")
 
     def r2(self):
         pocket1 = [self.cube[self.yellow][self.corner_ur], self.cube[self.yellow][self.edge_r],
@@ -149,6 +153,8 @@ class Cube:
         self.cube[self.orange][self.corner_dl] = pocket1
         self.cube[self.orange][self.corner_ur] = pocket2
 
+        self.solution.append("R2")
+
 
 
     def l(self):
@@ -182,6 +188,8 @@ class Cube:
         self.cube[self.red][self.corner_dr] = self.cube[self.red][self.corner_ur]
         self.cube[self.red][self.corner_ur] = pocket
 
+        self.solution.append("L")
+
     def l_x(self):
         pocket = [self.cube[self.yellow][self.corner_ul], self.cube[self.yellow][self.edge_l], self.cube[self.yellow][self.corner_dl]]
 
@@ -212,6 +220,8 @@ class Cube:
         self.cube[self.red][self.corner_ur] = self.cube[self.red][self.corner_dr]
         self.cube[self.red][self.corner_dr] = self.cube[self.red][self.corner_dl]
         self.cube[self.red][self.corner_dl] = pocket
+
+        self.solution.append("L'")
 
     def l2(self):
         pocket1 = [self.cube[self.yellow][self.corner_ul], self.cube[self.yellow][self.edge_l],
@@ -256,6 +266,8 @@ class Cube:
         self.cube[self.red][self.corner_dl] = pocket1
         self.cube[self.red][self.corner_ur] = pocket2
 
+        self.solution.append("L2")
+
     def u(self):
         # in this case when we do U blue side doesn't care, it just turns around (as far as I understood)
 
@@ -290,6 +302,8 @@ class Cube:
         self.cube[self.yellow][self.corner_dr] = self.cube[self.yellow][self.corner_ur]
         self.cube[self.yellow][self.corner_ur] = pocket
 
+        self.solution.append("U")
+
 
     def u_x(self):
         pocket = [self.cube[self.green][self.corner_ul], self.cube[self.green][self.edge_u],
@@ -322,6 +336,8 @@ class Cube:
         self.cube[self.yellow][self.corner_ur] = self.cube[self.yellow][self.corner_dr]
         self.cube[self.yellow][self.corner_dr] = self.cube[self.yellow][self.corner_dl]
         self.cube[self.yellow][self.corner_dl] = pocket
+
+        self.solution.append("U'")
 
     def u2(self):
         pocket1 = [self.cube[self.green][self.corner_ul], self.cube[self.green][self.edge_u],
@@ -366,6 +382,8 @@ class Cube:
         self.cube[self.yellow][self.corner_dl] = pocket1
         self.cube[self.yellow][self.corner_ur] = pocket2
 
+        self.solution.append("U2")
+
     def d(self):
         pocket = [self.cube[self.green][self.corner_dl], self.cube[self.green][self.edge_d],
                   self.cube[self.green][self.corner_dr]]
@@ -398,6 +416,8 @@ class Cube:
         self.cube[self.white][self.corner_dr] = self.cube[self.white][self.corner_ur]
         self.cube[self.white][self.corner_ur] = pocket
 
+        self.solution.append("D")
+
     def d_x(self):
         pocket = [self.cube[self.green][self.corner_dl], self.cube[self.green][self.edge_d],
                   self.cube[self.green][self.corner_dr]]
@@ -429,6 +449,8 @@ class Cube:
         self.cube[self.white][self.corner_ur] = self.cube[self.white][self.corner_dr]
         self.cube[self.white][self.corner_dr] = self.cube[self.white][self.corner_dl]
         self.cube[self.white][self.corner_dl] = pocket
+
+        self.solution.append("D'")
 
 
 
@@ -475,6 +497,8 @@ class Cube:
         self.cube[self.white][self.corner_dl] = pocket1
         self.cube[self.white][self.corner_ur] = pocket2
 
+        self.solution.append("D2")
+
 
 
     def f(self):
@@ -509,6 +533,8 @@ class Cube:
         self.cube[self.green][self.corner_dr] = self.cube[self.green][self.corner_ur]
         self.cube[self.green][self.corner_ur] = pocket
 
+        self.solution.append("F")
+
     def f_x(self):
         pocket = [self.cube[self.yellow][self.corner_dl], self.cube[self.yellow][self.edge_d],
                   self.cube[self.yellow][self.corner_dr]]
@@ -541,7 +567,7 @@ class Cube:
         self.cube[self.green][self.corner_dr] = self.cube[self.green][self.corner_dl]
         self.cube[self.green][self.corner_dl] = pocket
 
-
+        self.solution.append("F'")
 
 
     def f2(self):
@@ -587,6 +613,8 @@ class Cube:
         self.cube[self.green][self.corner_dl] = pocket1
         self.cube[self.green][self.corner_ur] = pocket2
 
+        self.solution.append("F2")
+
 
     def b(self):
         pocket = [self.cube[self.yellow][self.corner_ul], self.cube[self.yellow][self.edge_u],
@@ -620,8 +648,7 @@ class Cube:
         self.cube[self.blue][self.corner_dr] = self.cube[self.blue][self.corner_ur]
         self.cube[self.blue][self.corner_ur] = pocket
 
-
-
+        self.solution.append("B")
 
 
     def b_x(self):
@@ -655,6 +682,8 @@ class Cube:
         self.cube[self.blue][self.corner_ur] = self.cube[self.blue][self.corner_dr]
         self.cube[self.blue][self.corner_dr] = self.cube[self.blue][self.corner_dl]
         self.cube[self.blue][self.corner_dl] = pocket
+
+        self.solution.append("B'")
 
 
     def b2(self):
@@ -700,6 +729,8 @@ class Cube:
         self.cube[self.blue][self.corner_dl] = pocket1
         self.cube[self.blue][self.corner_ur] = pocket2
 
+        self.solution.append("B2")
+
 
     def m(self):
         pocket = [self.cube[self.yellow][self.edge_u], self.cube[self.yellow][self.centre],
@@ -720,6 +751,8 @@ class Cube:
         self.cube[self.green][self.centre] = pocket[1]
         self.cube[self.green][self.edge_u] = pocket[2]
 
+        self.solution.append("M")
+
     def m_x(self):
         pocket = [self.cube[self.yellow][self.edge_u], self.cube[self.yellow][self.centre],
                   self.cube[self.yellow][self.edge_d]]
@@ -738,6 +771,8 @@ class Cube:
         self.cube[self.blue][self.edge_blue_u] = pocket[0]
         self.cube[self.blue][self.centre] = pocket[1]
         self.cube[self.blue][self.edge_blue_d] = pocket[2]
+
+        self.solution.append("M'")
 
     def m2(self):
         pocket1 = [self.cube[self.yellow][self.edge_u], self.cube[self.yellow][self.centre],
@@ -762,6 +797,8 @@ class Cube:
         self.cube[self.blue][self.centre] = pocket1[1]
         self.cube[self.blue][self.edge_blue_d] = pocket1[2]
 
+        self.solution.append("M2")
+
     def e(self):
         pocket = [self.cube[self.green][self.edge_l], self.cube[self.green][self.centre],
                   self.cube[self.green][self.edge_r]]
@@ -781,6 +818,8 @@ class Cube:
         self.cube[self.red][self.centre] = pocket[1]
         self.cube[self.red][self.edge_r] = pocket[2]
 
+        self.solution.append("E")
+
     def e_x(self):
         pocket = [self.cube[self.green][self.edge_l], self.cube[self.green][self.centre],
                   self.cube[self.green][self.edge_r]]
@@ -799,6 +838,8 @@ class Cube:
         self.cube[self.orange][self.edge_l] = pocket[0]
         self.cube[self.orange][self.centre] = pocket[1]
         self.cube[self.orange][self.edge_r] = pocket[2]
+
+        self.solution.append("E'")
 
     def e2(self):
         pocket1 = [self.cube[self.green][self.edge_l], self.cube[self.green][self.centre],
@@ -823,6 +864,8 @@ class Cube:
         self.cube[self.red][self.centre] = pocket1[1]
         self.cube[self.red][self.edge_r] = pocket1[2]
 
+        self.solution.append("E2")
+
     def s(self):
         pocket = [self.cube[self.white][self.edge_l], self.cube[self.white][self.centre],
                   self.cube[self.white][self.edge_r]]
@@ -842,6 +885,8 @@ class Cube:
         self.cube[self.orange][self.centre] = pocket[1]
         self.cube[self.orange][self.edge_u] = pocket[2]
 
+        self.solution.append("S")
+
     def s_x(self):
         pocket = [self.cube[self.white][self.edge_l], self.cube[self.white][self.centre],
                   self.cube[self.white][self.edge_r]]
@@ -860,6 +905,8 @@ class Cube:
         self.cube[self.red][self.edge_d] = pocket[0]
         self.cube[self.red][self.centre] = pocket[1]
         self.cube[self.red][self.edge_u] = pocket[2]
+
+        self.solution.append("S'")
 
     def s2(self):
         pocket1 = [self.cube[self.red][self.edge_u], self.cube[self.red][self.centre],
@@ -884,65 +931,112 @@ class Cube:
         self.cube[self.white][self.centre] = pocket1[1]
         self.cube[self.white][self.edge_l] = pocket1[2]
 
+        self.solution.append("S2")
+
     def rw(self):
         self.r()
         self.m_x()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Rw")
 
     def rw_x(self):
         self.r_x()
         self.m()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Rw'")
 
     def rw2(self):
         self.r2()
         self.m2()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Rw2")
 
     def lw(self):
         self.l()
         self.m()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Lw")
 
     def lw_x(self):
         self.l_x()
         self.m_x()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Lw'")
 
     def lw2(self):
         self.l2()
         self.m2()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Lw2")
 
     def uw(self):
         self.u()
         self.e()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Uw")
 
     def uw_x(self):
         self.u_x()
         self.e_x()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Uw'")
 
     def uw2(self):
         self.u2()
         self.e2()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Uw2")
 
     def dw(self):
         self.d()
         self.e_x()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Dw")
 
     def dw_x(self):
         self.d_x()
         self.e()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Dw'")
 
     def dw2(self):
         self.d2()
         self.e2()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Dw2")
 
     def fw(self):
         self.f()
         self.s()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Fw")
 
     def fw_x(self):
         self.f_x()
         self.s_x()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Fw'")
 
     def fw2(self):
         self.f2()
         self.s2()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("Fw2")
 
     # no bw
 
@@ -950,50 +1044,82 @@ class Cube:
         self.r()
         self.m_x()
         self.l_x()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("x")
 
     def x_x(self):
         self.r_x()
         self.m()
         self.l()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("x'")
 
     def x2(self):
         self.r2()
         self.m2()
         self.l2()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("x2")
         
     def y(self):
         self.u()
         self.e()
         self.d_x()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("y")
 
     def y_x(self):
         self.u_x()
         self.e_x()
         self.d()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("y'")
 
     def y2(self):
         self.u2()
         self.e2()
         self.d2()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("y2")
 
     def z(self):
         self.f()
         self.s()
         self.b_x()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("z")
 
     def z_x(self):
         self.f_x()
         self.s_x()
         self.b()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("z'")
 
     def z2(self):
         self.f2()
         self.s2()
         self.b2()
-
-
-
-
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.pop()
+        self.solution.append("z2")
 
     def define(self):
         # data is defined in accordance with self.colors
@@ -1052,42 +1178,7 @@ class Cube:
         write('begin: ' + str(self.cube))
         #self.r()
         #self.u()
-        for zzz in range(0,2):
-            self.f()
-            write(self.cube)
-            self.r()
-            write(self.cube)
-            self.u_x()
-            write(self.cube)
-            self.r_x()
-            write(self.cube)
-            self.u_x()
-            write(self.cube)
-            self.r()
-            write(self.cube)
-            self.u()
-            write(self.cube)
-            self.r_x()
-            write(self.cube)
-            self.f_x()
-            write(self.cube)
-            self.r()
-            write(self.cube)
-            self.u()
-            write(self.cube)
-            self.r_x()
-            write(self.cube)
-            self.u_x()
-            write(self.cube)
-            self.r_x()
-            write(self.cube)
-            self.f()
-            write(self.cube)
-            self.r()
-            write(self.cube)
-            self.f_x()
-            write(self.cube)
-            write(zzz+1)
+        write(self.solution)
 
 
 def write(msg):
