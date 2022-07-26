@@ -7,13 +7,12 @@ class MyTestCase(unittest.TestCase):
 
     def test_cross(self):
             self.r.cube = [
-                ['y', 'w', 'y', 'y', 'w', 'y', 'y', 'w', 'y'],
-                ['g', 'b', 'g', 'b', 'g', 'b', 'g', 'b', 'g'],
-                ['r', 'r', 'r', 'o', 'o', 'o', 'r', 'r', 'r'],
-                ['b', 'g', 'b', 'g', 'b', 'g', 'b', 'g', 'b'],
-                ['o', 'o', 'o', 'r', 'r', 'r', 'o', 'o', 'o'],
-                ['w', 'y', 'w', 'w', 'y', 'w', 'w', 'y', 'w']
-            ]
+            ['o','o','o','b','w','o','r','y','y'],
+            ['w','r','o','y','g','w','g','o','r'],
+            ['w','o','b','w','o','g','g','b','y'],
+            ['b','y','g','b','b','g','o','r','r'],
+            ['b','w','w','b','r','r','b','g','y'],
+            ['r','g','y','y','y','r','w','w','g']]
 
             self.r.solve()
             self.assertEqual(self.r.cube, [

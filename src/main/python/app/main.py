@@ -4,11 +4,11 @@ cube = rubik.Cube()
 #while True:
 #    if cube.define():
 #        cube.solve()
-"""cube.cube = [
-            ['w','w','y','w','w','y','w','w','y'],
-            ['g','g','b','g','g','b','o','o','o'],
-            ['o','o','o','o','o','o','g','b','b'],
-            ['g','b','b','g','b','b','r','r','r'],
-            ['r','r','r','r','r','r','g','g','b'],
-            ['y','y','y','y','y','y','w','w','w']]"""
+cube.cube = [
+            ['o','o','o','b','w','o','r','y','y'],
+            ['w','r','o','y','g','w','g','o','r'],
+            ['w','o','b','w','o','g','g','b','y'],
+            ['b','y','g','b','b','g','o','r','r'],
+            ['b','w','w','b','r','r','b','g','y'],
+            ['r','g','y','y','y','r','w','w','g']]
 cube.solve()

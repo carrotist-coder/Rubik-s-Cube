@@ -4,4 +4,9 @@ def cfop():
     cross()
 
 def cross():
-    rubik.write('Hi there')
+    for i in range(1,5):
+        rubik.write('Hi there')
+        cross_get()
+
+def cross_get():
+    edges = [rubik.Cube.cube[rubik.white][rubik.edge]]
