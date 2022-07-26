@@ -1,3 +1,5 @@
+from src.main.python.domain import solve
+
 class Cube:
     def __init__(self):
         self.solved = False
@@ -1176,8 +1178,7 @@ class Cube:
 
     def solve(self):
         write('begin: ' + str(self.cube))
-        #self.r()
-        #self.u()
+        solve.cfop()
         write(self.solution)
 
 
