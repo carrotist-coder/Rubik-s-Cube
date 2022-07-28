@@ -1206,12 +1206,12 @@ class Cube:
             if not(rev):
                 if pos==1:
                     self.r2()
-                    self.u_x()
+                    self.u()
                     self.f2()
                 elif pos==2:
                     self.b2()
                     self.u2()
-                    self.r2()
+                    self.f2()
                 elif pos==3:
                     self.l2()
                     self.u_x()
@@ -1226,11 +1226,11 @@ class Cube:
                     self.d_x()
                 elif pos == 6:
                     self.d()
-                    self.r_x()
+                    self.r()
                     self.d_x()
                 elif pos == 7:
                     self.d_x()
-                    self.l()
+                    self.l_x()
                     self.d()
                 elif pos == 8:
                     self.u2()
@@ -1250,8 +1250,92 @@ class Cube:
                     self.l()
                     self.d()
                 elif pos==1:
+                    self.r()
+                    self.f()
+                elif pos==2:
+                    self.b()
+                    self.d()
+                    self.r()
+                    self.d_x()
+                elif pos==3:
+                    self.l_x()
+                    self.f_x()
+                elif pos == 4:
+                    self.f_x()
+                elif pos == 5:
+                    self.f()
+                elif pos == 6:
+                    self.d2()
+                    self.b_x()
+                    self.d2()
+                elif pos == 7:
+                    self.d2()
+                    self.b()
+                    self.d2()
+                elif pos == 8:
+                    self.u()
                     self.r_x()
                     self.f()
+                    self.r()
+                elif pos == 9:
+                    self.r_x()
+                    self.f()
+                    self.r()
+                elif pos == 10:
+                    self.u_x()
+                    self.r_x()
+                    self.f()
+                    self.r()
+                elif pos == 11:
+                    self.l()
+                    self.f_x()
+                    self.l_x()
+        elif color_edge == 'o':
+            if not(rev):
+                if pos==0:
+                    self.f2()
+                    self.u_x()
+                    self.r2()
+                elif pos==2:
+                    self.b2()
+                    self.u()
+                    self.r2()
+                elif pos==3:
+                    self.l2()
+                    self.u2()
+                    self.r2()
+                elif pos == 4:
+                    self.f2()
+                    self.r_x()
+                    self.f2()
+                elif pos == 5:
+                    self.r_x()
+                elif pos == 6:
+                    self.r()
+                elif pos == 7:
+                    self.d2()
+                    self.l_x()
+                    self.d2()
+                elif pos == 8:
+                    self.u()
+                    self.r2()
+                elif pos == 9:
+                    self.r2()
+                elif pos == 10:
+                    self.u_x()
+                    self.r2()
+                elif pos == 11:
+                    self.u2()
+                    self.r2()
+            else:
+                if pos==0:
+                    self.f_x()
+                    self.r_x()
+                elif pos==1:
+                    self.r()
+                    self.d_x()
+                    self.f()
+                    self.d()
                 elif pos==2:
                     self.b()
                     self.d()
