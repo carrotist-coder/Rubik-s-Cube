@@ -1188,26 +1188,23 @@ class Cube:
     def cross(self):
         downs = ['g','o','b','r']
         for i in range(1, 5):
-            found = False
             edges = self.edges_get()
             edges_reversed = self.edges_get_reversed()
             for i1 in range(0,12):
                 if edges[i1]=='w':
-                    if downs.index(edges_reversed[i1]) in downs:
-                        self.cross_do(i1, False, downs.index(edges_reversed[i1]))
+                    if edges_reversed[i1] in downs:
+                        self.cross_do(i1, False, edges_reversed[i1])
                         downs[downs.index(edges_reversed[i1])]=''
-                        found = True
+                        break
                     else:
                         continue
                 elif edges_reversed[i1]=='w':
-                    if downs.index(edges[i1]) in downs:
-                        self.cross_do(i1, True, downs.index(edges[i1]))
+                    if edges[i1] in downs:
+                        self.cross_do(i1, True, edges[i1])
                         downs[downs.index(edges[i1])]=''
-                        found = True
+                        break
                     else:
                         continue
-            if found:
-                continue
 
     def cross_do(self,pos, rev, color_edge):
         if color_edge == 'g':
