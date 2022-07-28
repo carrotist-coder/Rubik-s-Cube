@@ -1478,6 +1478,94 @@ class Cube:
                     self.l_x()
                     self.b()
                     self.l()
+        elif color_edge == 'r':
+            if not(rev):
+                if pos==0:
+                    self.f2()
+                    self.u()
+                    self.l2()
+                elif pos==1:
+                    self.r2()
+                    self.u2()
+                    self.l2()
+                elif pos==2:
+                    self.b2()
+                    self.u_x()
+                    self.l2()
+                elif pos == 4:
+                    self.l()
+                elif pos == 5:
+                    self.f2()
+                    self.l()
+                    self.f2()
+                elif pos == 6:
+                    self.b2()
+                    self.l_x()
+                    self.b2()
+                elif pos == 7:
+                    self.l_x()
+                elif pos == 8:
+                    self.u_x()
+                    self.l2()
+                elif pos == 9:
+                    self.u2()
+                    self.l2()
+                elif pos == 10:
+                    self.u()
+                    self.l2()
+                elif pos == 11:
+                    self.l2()
+            else:
+                if pos==0:
+                    self.f()
+                    self.l()
+                elif pos==1:
+                    self.r()
+                    self.d()
+                    self.f()
+                    self.d_x()
+                elif pos==2:
+                    self.b_x()
+                    self.l_x()
+                elif pos==3:
+                    self.l_x()
+                    self.d()
+                    self.f_x()
+                    self.d_x()
+                elif pos == 4:
+                    self.d()
+                    self.f_x()
+                    self.d_x()
+                elif pos == 5:
+                    self.d()
+                    self.f()
+                    self.d_x()
+                elif pos == 6:
+                    self.d_x()
+                    self.b_x()
+                    self.d()
+                elif pos == 7:
+                    self.d_x()
+                    self.b()
+                    self.d()
+                elif pos == 8:
+                    self.b()
+                    self.l_x()
+                    self.b_x()
+                elif pos == 9:
+                    self.u()
+                    self.f_x()
+                    self.l()
+                    self.f()
+                elif pos == 10:
+                    self.f_x()
+                    self.l()
+                    self.f()
+                elif pos == 11:
+                    self.u_x()
+                    self.f_x()
+                    self.l()
+                    self.f()
 
 
 
