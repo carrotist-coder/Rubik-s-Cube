@@ -1198,14 +1198,14 @@ class Cube:
                         downs[downs.index(edges_reversed[i1])]=''
                         found = True
                     else:
-                        pass
+                        continue
                 elif edges_reversed[i1]=='w':
                     if downs.index(edges[i1]) in downs:
-                        self.cross_do(i1, False, downs.index(edges_reversed[i1]))
-                        downs[downs.index(edges_reversed[i1])]=''
+                        self.cross_do(i1, True, downs.index(edges[i1]))
+                        downs[downs.index(edges[i1])]=''
                         found = True
                     else:
-                        pass
+                        continue
             if found:
                 continue
 
