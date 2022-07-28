@@ -1343,37 +1343,43 @@ class Cube:
                     self.d_x()
                 elif pos==3:
                     self.l_x()
+                    self.d_x()
                     self.f_x()
+                    self.d()
                 elif pos == 4:
+                    self.d_x()
                     self.f_x()
+                    self.d()
                 elif pos == 5:
+                    self.d_x()
                     self.f()
+                    self.d()
                 elif pos == 6:
-                    self.d2()
+                    self.d()
                     self.b_x()
-                    self.d2()
+                    self.d_x()
                 elif pos == 7:
-                    self.d2()
+                    self.d()
                     self.b()
-                    self.d2()
+                    self.d_x()
                 elif pos == 8:
-                    self.u()
-                    self.r_x()
-                    self.f()
+                    self.b()
                     self.r()
+                    self.b_x()
                 elif pos == 9:
-                    self.r_x()
+                    self.u()
                     self.f()
-                    self.r()
-                elif pos == 10:
-                    self.u_x()
                     self.r_x()
-                    self.f()
-                    self.r()
-                elif pos == 11:
-                    self.l()
                     self.f_x()
-                    self.l_x()
+                elif pos == 10:
+                    self.f()
+                    self.r_x()
+                    self.f_x()
+                elif pos == 11:
+                    self.u_x()
+                    self.f()
+                    self.r_x()
+                    self.f_x()
 
 
 
