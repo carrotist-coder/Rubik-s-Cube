@@ -1193,11 +1193,19 @@ class Cube:
             edges_reversed = self.edges_get_reversed()
             for i1 in range(0,12):
                 if edges[i1]=='w':
-                    self.cross_do(i1, False, downs.index(edges_reversed[0]))
-                    downs[downs.index(edges_reversed[0])]=''
-                    found = True
-                else:
-                    pass
+                    if downs.index(edges_reversed[i1]) in downs:
+                        self.cross_do(i1, False, downs.index(edges_reversed[i1]))
+                        downs[downs.index(edges_reversed[i1])]=''
+                        found = True
+                    else:
+                        pass
+                elif edges_reversed[i1]=='w':
+                    if downs.index(edges[i1]) in downs:
+                        self.cross_do(i1, False, downs.index(edges_reversed[i1]))
+                        downs[downs.index(edges_reversed[i1])]=''
+                        found = True
+                    else:
+                        pass
             if found:
                 continue
 
@@ -1380,6 +1388,96 @@ class Cube:
                     self.f()
                     self.r_x()
                     self.f_x()
+        elif color_edge == 'b':
+            if not(rev):
+                if pos==0:
+                    self.f2()
+                    self.u2()
+                    self.b2()
+                elif pos==1:
+                    self.r2()
+                    self.u_x()
+                    self.b2()
+                elif pos==3:
+                    self.l2()
+                    self.u()
+                    self.b2()
+                elif pos == 4:
+                    self.d()
+                    self.l()
+                    self.d_x()
+                elif pos == 5:
+                    self.d_x()
+                    self.r_x()
+                    self.d()
+                elif pos == 6:
+                    self.d_x()
+                    self.r()
+                    self.d()
+                elif pos == 7:
+                    self.d()
+                    self.l_x()
+                    self.d_x()
+                elif pos == 8:
+                    self.b2()
+                elif pos == 9:
+                    self.u_x()
+                    self.b2()
+                elif pos == 10:
+                    self.u2()
+                    self.b2()
+                elif pos == 11:
+                    self.u()
+                    self.b2()
+            else:
+                if pos==0:
+                    self.f_x()
+                    self.d_x()
+                    self.r_x()
+                    self.d()
+                elif pos==1:
+                    self.r_x()
+                    self.b_x()
+                    self.r()
+                elif pos==2:
+                    self.b()
+                    self.d_x()
+                    self.r()
+                    self.d()
+                elif pos==3:
+                    self.l()
+                    self.b()
+                    self.l_x()
+                elif pos == 4:
+                    self.l2()
+                    self.b()
+                    self.l2()
+                elif pos == 5:
+                    self.r2()
+                    self.b_x()
+                    self.r2()
+                elif pos == 6:
+                    self.b_x()
+                elif pos == 7:
+                    self.b()
+                elif pos == 8:
+                    self.u()
+                    self.r()
+                    self.b_x()
+                    self.r_x()
+                elif pos == 9:
+                    self.r()
+                    self.b_x()
+                    self.r_x()
+                elif pos == 10:
+                    self.u_x()
+                    self.r()
+                    self.b_x()
+                    self.r_x()
+                elif pos == 11:
+                    self.l_x()
+                    self.b()
+                    self.l()
 
 
 
